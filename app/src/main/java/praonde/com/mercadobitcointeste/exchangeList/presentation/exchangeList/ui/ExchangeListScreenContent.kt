@@ -10,11 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import praonde.com.mercadobitcointeste.R
-import praonde.com.mercadobitcointeste.common.LoadingEvent
+import praonde.com.mercadobitcointeste.common.network.LoadingEvent
 import praonde.com.mercadobitcointeste.common.composables.BaseScreen
-import praonde.com.mercadobitcointeste.common.getSuccessDataOrNull
-import praonde.com.mercadobitcointeste.common.isError
-import praonde.com.mercadobitcointeste.common.isLoading
+import praonde.com.mercadobitcointeste.common.network.getSuccessDataOrNull
+import praonde.com.mercadobitcointeste.common.network.isError
+import praonde.com.mercadobitcointeste.common.network.isLoading
 import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeData
 
 @Composable

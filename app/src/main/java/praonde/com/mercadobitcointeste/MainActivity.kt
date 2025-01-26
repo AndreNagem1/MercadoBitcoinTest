@@ -11,14 +11,14 @@ import androidx.navigation.toRoute
 import kotlinx.serialization.Serializable
 import praonde.com.mercadobitcointeste.exchangeList.presentation.exchangeDetails.ui.ExchangeDetailsScreen
 import praonde.com.mercadobitcointeste.exchangeList.presentation.exchangeList.ui.ExchangeListScreen
-import praonde.com.mercadobitcointeste.ui.theme.MercadoBitcoinTesteTheme
+import praonde.com.mercadobitcointeste.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MercadoBitcoinTesteTheme {
+            AppTheme {
                 val navController = rememberNavController()
 
                 NavHost(

@@ -4,9 +4,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import praonde.com.mercadobitcointeste.common.LoadingEvent
+import praonde.com.mercadobitcointeste.common.network.LoadingEvent
 import praonde.com.mercadobitcointeste.exchangeList.data.entity.ExchangeListEntityItem
-import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeDetails
 
 class ExchangeDataStore(private val exchangeListApi: ExchangeListApi) {
 

@@ -7,7 +7,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import org.junit.Rule
 import org.junit.Test
-import praonde.com.mercadobitcointeste.common.LoadingEvent
+import praonde.com.mercadobitcointeste.common.network.LoadingEvent
 import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeData
 import praonde.com.mercadobitcointeste.exchangeList.presentation.exchangeList.ui.ExchangeListScreenContent
 

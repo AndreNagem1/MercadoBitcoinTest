@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import praonde.com.mercadobitcointeste.R
 import praonde.com.mercadobitcointeste.common.extensions.toDollarCurrency
 import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeData
+import praonde.com.mercadobitcointeste.ui.theme.AppTheme
 
 @Composable
 fun ExchangeCard(data: ExchangeData, onCardClick: () -> Unit) {
@@ -30,12 +31,12 @@ fun ExchangeCard(data: ExchangeData, onCardClick: () -> Unit) {
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(10.dp),
         colors = CardColors(
-            containerColor = Color.White,
-            contentColor = Color.White,
-            disabledContainerColor = Color.White,
-            disabledContentColor = Color.White
+            containerColor = AppTheme.colors.white,
+            contentColor = AppTheme.colors.white,
+            disabledContainerColor = AppTheme.colors.white,
+            disabledContentColor = AppTheme.colors.white
         ),
-        border = BorderStroke(width = 2.dp, color = Color.Gray),
+        border = BorderStroke(width = 2.dp, color = AppTheme.colors.primary),
         onClick = { onCardClick() }
     ) {
         Column(
@@ -65,15 +66,14 @@ fun ExchangeCardItem(label: String, value: String) {
     ) {
         Text(
             text = label,
-            style = TextStyle(
-                fontWeight = FontWeight.Bold,
-            ),
-            color = Color.Black
+            style = AppTheme.typography.labelBold,
+            color = AppTheme.colors.primary
         )
         Spacer(modifier = Modifier.width(10.dp))
         Text(
             text = value,
-            color = Color.Black
+            style = AppTheme.typography.displayNormal,
+            color = AppTheme.colors.primary
         )
     }
 }
