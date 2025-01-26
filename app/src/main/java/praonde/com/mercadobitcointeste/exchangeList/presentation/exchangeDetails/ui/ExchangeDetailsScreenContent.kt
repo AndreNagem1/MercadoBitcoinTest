@@ -7,6 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import praonde.com.mercadobitcointeste.R
 import praonde.com.mercadobitcointeste.common.LoadingEvent
 import praonde.com.mercadobitcointeste.common.composables.BaseScreen
 import praonde.com.mercadobitcointeste.common.extensions.toDollarCurrency
@@ -18,7 +20,7 @@ import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeDetails
 @Composable
 fun ExchangeDetailsScreenContent(state: LoadingEvent<ExchangeDetails>) {
     BaseScreen(
-        screenTitle = "Exchange Details",
+        screenTitle = stringResource(R.string.exchange_details_screen_title),
         isLoading = state.isLoading(),
         isError = state.isError()
     ) {
@@ -29,7 +31,7 @@ fun ExchangeDetailsScreenContent(state: LoadingEvent<ExchangeDetails>) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(text = data.exchangeId)
-                Text(text = data.name ?: "Sem nome")
+                Text(text = data.name ?: stringResource(R.string.exchange_no_name))
                 Text(text = data.website)
                 Text(text = data.volume1dayUsd.toDollarCurrency())
                 Text(text = data.volume1hrsUsd.toDollarCurrency())

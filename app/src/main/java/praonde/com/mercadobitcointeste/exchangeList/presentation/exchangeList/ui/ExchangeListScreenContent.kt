@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import praonde.com.mercadobitcointeste.R
 import praonde.com.mercadobitcointeste.common.LoadingEvent
 import praonde.com.mercadobitcointeste.common.composables.BaseScreen
 import praonde.com.mercadobitcointeste.common.getSuccessDataOrNull
@@ -21,7 +23,7 @@ fun ExchangeListScreenContent(
     onSelectExchange: (String) -> Unit
 ) {
     BaseScreen(
-        screenTitle = "Exchange List",
+        screenTitle = stringResource(R.string.exchange_list_screen_title),
         isLoading = state.isLoading(),
         isError = state.isError(),
     ) {

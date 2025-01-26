@@ -16,9 +16,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import praonde.com.mercadobitcointeste.R
 import praonde.com.mercadobitcointeste.common.extensions.toDollarCurrency
 import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeData
 
@@ -40,15 +42,15 @@ fun ExchangeCard(data: ExchangeData, onCardClick: () -> Unit) {
             modifier = Modifier.padding(4.dp)
         ) {
             ExchangeCardItem(
-                label = "Exchange ID:",
+                label = stringResource(R.string.exchange_id_label),
                 value = data.id
             )
             ExchangeCardItem(
-                label = "Name:",
-                value = data.name ?: "Sem nome"
+                label = stringResource(R.string.exchange_name_label),
+                value = data.name ?: stringResource(R.string.exchange_no_name)
             )
             ExchangeCardItem(
-                label = "Volume per day:",
+                label = stringResource(R.string.exchange_volume_label),
                 value = data.volumePerDayUsd.toDollarCurrency()
             )
         }
@@ -58,7 +60,6 @@ fun ExchangeCard(data: ExchangeData, onCardClick: () -> Unit) {
 @Composable
 fun ExchangeCardItem(label: String, value: String) {
     Spacer(modifier = Modifier.height(4.dp))
-
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
