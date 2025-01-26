@@ -21,6 +21,7 @@ fun ExchangeListScreenContent(
     onSelectExchange: (String) -> Unit
 ) {
     BaseScreen(
+        screenTitle = "Exchange List",
         isLoading = state.isLoading(),
         isError = state.isError(),
     ) {

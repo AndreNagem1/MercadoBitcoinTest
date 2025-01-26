@@ -18,7 +18,9 @@ import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeDetails
 @Composable
 fun ExchangeDetailsScreenContent(state: LoadingEvent<ExchangeDetails>) {
     BaseScreen(
-        isLoading = state.isLoading(), isError = state.isError()
+        screenTitle = "Exchange Details",
+        isLoading = state.isLoading(),
+        isError = state.isError()
     ) {
         state.getSuccessDataOrNull()?.let { data ->
             Column(

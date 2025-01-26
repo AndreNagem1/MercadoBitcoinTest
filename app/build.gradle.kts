@@ -78,4 +78,8 @@ dependencies {
 
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+
+    implementation(libs.kotlin.test.corroutines)
+    testImplementation(libs.mockk)
+    implementation(libs.turbine)
 }
