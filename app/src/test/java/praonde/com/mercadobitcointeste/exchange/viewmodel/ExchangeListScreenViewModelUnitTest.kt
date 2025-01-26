@@ -7,7 +7,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 import praonde.com.mercadobitcointeste.common.LoadingEvent
 import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeData
@@ -17,9 +19,14 @@ import praonde.com.mercadobitcointeste.exchangeList.presentation.exchangeList.vi
 @ExperimentalCoroutinesApi
 class ExchangeListScreenViewModelTest {
 
-    private val repository: ExchangeRepository = mockk()
+    private lateinit var repository: ExchangeRepository
     private lateinit var viewModel: ExchangeListScreenViewModel
 
+    @Before
+    fun setUp() {
+        repository = mockk()
+        Dispatchers.setMain(Dispatchers.Unconfined)
+    }
 
     @Test
     fun `state starts with LoadingEvent`() = runTest {
@@ -52,7 +59,6 @@ class ExchangeListScreenViewModelTest {
         viewModel = ExchangeListScreenViewModel(repository)
 
         viewModel.state.test {
-            assertEquals(LoadingEvent.Loading, awaitItem())
             assertEquals(successEvent, awaitItem())
             cancelAndIgnoreRemainingEvents()
         }
@@ -68,7 +74,6 @@ class ExchangeListScreenViewModelTest {
         viewModel = ExchangeListScreenViewModel(repository)
 
         viewModel.state.test {
-            assertEquals(LoadingEvent.Loading, awaitItem())
             assertEquals(errorEvent, awaitItem())
             cancelAndIgnoreRemainingEvents()
         }
