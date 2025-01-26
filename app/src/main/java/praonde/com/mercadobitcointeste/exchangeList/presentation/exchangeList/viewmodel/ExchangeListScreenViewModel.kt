@@ -11,8 +11,23 @@ import praonde.com.mercadobitcointeste.common.LoadingEvent
 import praonde.com.mercadobitcointeste.exchangeList.domain.model.ExchangeData
 import praonde.com.mercadobitcointeste.exchangeList.domain.repository.ExchangeRepository
 
-class ExchangeListScreenViewModel(repository: ExchangeRepository) : ViewModel() {
+class ExchangeListScreenViewModel(private val repository: ExchangeRepository) : ViewModel() {
 
-    val state = repository.getExchangeList()
+    private val _exchangeList =
+        MutableStateFlow<LoadingEvent<List<ExchangeData>>>(LoadingEvent.Loading)
+
+    val state = _exchangeList
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), LoadingEvent.Loading)
+
+    private fun getExchangeList() {
+        viewModelScope.launch {
+            repository.getExchangeList().collect {
+                _exchangeList.value = it
+            }
+        }
+    }
+
+    init {
+        getExchangeList()
+    }
 }
